@@ -1,0 +1,110 @@
+<!DOCTYPE >
+<html ng-app="carApp">
+<head>
+		<meta charset="utf-8"/>
+		<title>Angular Car Park App</title>
+
+		<!-- Google web fonts -->
+	<!--	<link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700" rel='stylesheet' />-->
+
+		<!-- The main CSS file -->
+		<link href="assets/css/style.css" rel="stylesheet" />
+		<style type="text/css">
+			#main label {
+			color: #FFFFFF;
+		}
+  
+
+        </style>
+         <style>
+         .buttondemo section {
+            background: #f7f7f7;
+            border-radius: 3px;
+            text-align: center;
+            margin: 1em;
+            position: relative !important;
+            padding-bottom: 10px; 
+         }
+         .buttondemo md-content {
+            margin-right: 7px; 
+         }
+         .buttondemo section .md-button {
+            margin-top: 16px;
+            margin-bottom: 16px; 
+         }
+         .buttondemo .label {
+            position: absolute;
+            bottom: 5px;
+            left: 7px;
+            font-size: 14px;
+            opacity: 0.54; 
+         }
+      a:link {
+	color: #FFFFFF;
+}
+a:visited {
+	color: #FFFFFF;
+}
+         </style>
+        
+      <!--  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">-->
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<!--      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
+     
+      
+        <script src="app.js"></script>
+        <!--script src="app.config.js"></script-->
+        <script src="controller.js"></script>
+        
+    
+        
+	</head>
+    <body >
+    
+   
+    
+  <div align="left"  style= "margin-left:300px;background-color:#F00; margin-right:600px; height:700px" >
+
+			
+  <div  ng-controller="carCntrl" style="alignment-baseline: central; height: 800px; width: 300px; margin-left: 100px; margin-top: 100px; color: #FFF;" >
+  <br><br><br>
+  
+  <h2  style="color:#FFF; margin-left:0px"> PARKING SYSTEM</h2>
+  <br>
+  <p style="font-style:italic; font-size:12px; color:#FFF" ng-controller="dateCtrl">{{ today | date : "fullDate" }}</p>
+  <br><br>
+  <label style="color:#FFF">Registration No.</label><br>
+  <select style="width:150px" size="" ng-model="regNo" ng-options="c.regNo for c in cars">
+ </select>
+  <br><br>
+  <label style="color:#FFF">Location</label><br><input type="text" value="{{regNo.loc}}"><br><br>
+  <label style="color:#FFF">Time In</label><br><input type="text" value="{{regNo.timeIn}}"><br><br>
+  <label style="color:#FFF">Time Out <br><span style="font-size:11px">(Change default time to value greater than Time-Out)</span></label><br><input type="text" ng-model="tOut" ng-init="tOut='12:00'"><br><br>
+  <label style="color:#FFF">Rate Per Hour</label><br><input type="text" ng-init="a='100'" ng-model="a"><br><br>
+  <label style="color:#FFF">Hours Parked.</label><br class="c"><input type="text" ng-model="b" ng-value=" result2()| number:2"><br>
+ <br><br>
+	
+ 
+  <!--<input name="" type="button" value="CALCULATE" style="margin-left:100px; width:100px; height:30px; background-color:#FFF; 
+  font:Arial, Helvetica, sans-serif; font-style:normal; font-size:11px" onclick="#a">-->
+   <a href="#a"><b>Reset</b></a><span style="margin-left:10px"><br>
+   <a href="#charges"><b>Calculate Charges</b></a>
+ 
+  
+  <div ng-view style="color:#FFF"></div>
+ 
+  <!--p style="color:#FFF"> Parking Charges : Rs. {{ result() | number:2 }}</p-->
+ </div>
+ 
+
+ 
+
+
+
+</body>
+</html>
